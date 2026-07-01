@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Origin IV
+
+Full-stack e-commerce store for a hand-painted streetwear brand built with Next.js.
+
+## Features
+
+- Product catalog with filtering
+- Custom garment design tool
+- Cart and checkout with form validation
+- Commission request form
+- Login / register with cookie-based sessions
+- Admin dashboard for managing products and orders
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- SQLite via better-sqlite3
+- bcryptjs for password hashing
+- AES-256 encrypted sessions
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/farajarshad01/Origin-IV-Clothing-Store.git
+cd Origin-IV-Clothing-Store
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The database is created and seeded automatically on first run.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Demo Accounts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Role     | Email                    | Password       |
+|----------|--------------------------|----------------|
+| Admin    | admin@originiv.com       | originivadmin  |
+| Customer | customer@originiv.com    | customer123    |
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This app uses `better-sqlite3`, a native Node.js binary. Vercel and Netlify are not supported.
+Deploy on Railway — it runs the app as a container and compiles native binaries correctly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable         | Description                                      |
+|------------------|--------------------------------------------------|
+| `SESSION_SECRET` | Secret key for session encryption. Change this in production. |
