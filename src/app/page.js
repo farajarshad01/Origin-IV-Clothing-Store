@@ -1,66 +1,38 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import db from '@/lib/db';
+import Header from '@/components/Header';
+import ProductSlider from '@/components/ProductSlider';
 
 export default function Home() {
+  // Fetch all customizable products from the local SQLite database
+  const products = db.prepare('SELECT * FROM products WHERE customizable = 1').all();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main style={{ position: 'relative', width: '100%', minHeight: '100vh', background: 'var(--bg-base)' }}>
+      <Header />
+      <ProductSlider products={products} />
+      
+      {/* Decorative Background Elements */}
+      <div style={{
+        position: 'fixed',
+        top: '-10%',
+        right: '-5%',
+        width: '600px',
+        height: '600px',
+        background: 'radial-gradient(circle, rgba(128,0,32,0.08) 0%, transparent 70%)',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }}></div>
+      
+      <div style={{
+        position: 'fixed',
+        bottom: '-10%',
+        left: '-10%',
+        width: '800px',
+        height: '800px',
+        background: 'radial-gradient(circle, rgba(255,30,39,0.05) 0%, transparent 70%)',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }}></div>
+    </main>
   );
 }

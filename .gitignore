@@ -23,6 +23,26 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+
+# IDE & Editor
+.vscode/
+.idea/
+*.suo
+*.sw?
+
+# testing / coverage
+/coverage
+.nyc_output/
+
+# cache
+.cache/
+.turbo/
+.swc/
+
+# secrets & certificates
+*.key
+*.cert
 
 # debug
 npm-debug.log*
