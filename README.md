@@ -39,8 +39,7 @@ The database is created and seeded automatically on first run.
 
 ## Deployment
 
-This app uses `better-sqlite3`, a native Node.js binary. Vercel and Netlify are not supported.
-Deploy on Railway — it runs the app as a container and compiles native binaries correctly.
+This app uses `better-sqlite3`, a native Node.js module that needs a persistent filesystem, so the recommended production host is a container platform such as Railway. A demo is also hosted on Vercel (https://origin-iv.vercel.app/).
 
 ## Environment Variables
 
